@@ -14,6 +14,8 @@ import { routing }        from './app.routing';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
+
+import { FooterComponent } from './shared/footer/index';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -28,6 +30,7 @@ import { RegisterComponent } from './register/index';
     declarations: [
         AppComponent,
         AlertComponent,
+        FooterComponent,
         HomeComponent,
         LoginComponent,
         RegisterComponent
