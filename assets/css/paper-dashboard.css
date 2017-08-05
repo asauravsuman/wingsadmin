@@ -251,7 +251,7 @@ body .wrapper {
 }
 
 a {
-  color: #68B3C8;
+  color: #FFF;
 }
 a:hover, a:focus {
   color: #3091B2;
@@ -2110,7 +2110,7 @@ Copyright (c) 2015 Daniel Eden
 .card label {
   font-size: 14px;
   font-weight: 400;
-  color: #9A9A9A;
+  color: #FFFFFF;
   margin-bottom: 0px;
 }
 .card .category i,
