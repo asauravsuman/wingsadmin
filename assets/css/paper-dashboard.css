@@ -331,7 +331,7 @@ hr {
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 0;
   background-size: cover;
   background-position: center center;
 }
@@ -554,7 +554,7 @@ hr {
 .main-panel {
   background-color: #f4f3ef;
   position: relative;
-  z-index: 2;
+  z-index: 0;
   float: right;
   width: calc(100% - 260px);
   min-height: 100%;
