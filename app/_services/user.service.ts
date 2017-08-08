@@ -8,7 +8,7 @@ export class UserService {
     constructor(private http: Http) { }
 
     getAll() {
-        return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
+        return this.http.get('http://localhost:3010/api/listuser', this.jwt()).map((response: Response) => response.json());
     }
 
     getById(id: number) {
@@ -33,7 +33,7 @@ export class UserService {
         // create authorization header with jwt token
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
-            let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
+            let headers = new Headers({ 'Authorization': 'Bearer '+currentUser.token});
             return new RequestOptions({ headers: headers });
         }
     }

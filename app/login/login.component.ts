@@ -9,7 +9,7 @@ import { AlertService, AuthenticationService } from '../_services/index';
 })
 
 export class LoginComponent implements OnInit {
-    model: any = {};
+    model: any = {username: 'saurav@imgapti.com', password: 'saurav'};
     loading = false;
     returnUrl: string;
 

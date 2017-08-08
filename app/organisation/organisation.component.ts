@@ -5,10 +5,10 @@ import { AlertService, UserService } from '../_services/index';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'home.component.html'
+    templateUrl: 'organisation.component.html'
 })
 
-export class HomeComponent implements OnInit {
+export class OrganisationComponent implements OnInit {
     currentUser: User;
     users: User[] = [];
     loading = false;

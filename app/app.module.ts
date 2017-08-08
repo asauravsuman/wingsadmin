@@ -16,7 +16,9 @@ import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
 
 import { FooterComponent } from './shared/footer/index';
-import { HomeComponent } from './home/index';
+import { MenuComponent } from './shared/menu/index';
+import { HomeComponent } from './home/index
+import { OrganisationComponent } from './organisation/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 
@@ -31,7 +33,9 @@ import { RegisterComponent } from './register/index';
         AppComponent,
         AlertComponent,
         FooterComponent,
+        MenuComponent,
         HomeComponent,
+        OrganisationComponent,
         LoginComponent,
         RegisterComponent
     ],
