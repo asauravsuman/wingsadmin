@@ -1,5 +1,5 @@
 ﻿import { Component, HostBinding } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
     moduleId: module.id,

@@ -69,15 +69,15 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                     <thead>
-                                        <th>ID</th>
                                         <th>Name</th>
-                                        <th>Salary</th>
+                                        <th>Status</th>
+                                        <th>Created On</th>
                                     </thead>
                                     <tbody>
                                     <tr *ngFor="let user of users">
-                                         <td> {{user.username}}  </td>
-                                        <td> {{user.email}} </td>
-                                        <td>  {{user.username}} </td>
+                                         <td> {{user.title}}  </td>
+                                        <td> {{user.status}} </td>
+                                        <td>  {{user.createdAt | date: 'mediumDate'}} </td>
                                     </tr>
                                     </tbody>
                                 </table>

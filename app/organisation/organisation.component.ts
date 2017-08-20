@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
 import { User } from '../_models/index';
-import { AlertService, UserService } from '../_services/index';
+import { AlertService, UserService, OrganisationService } from '../_services/index';
 
 @Component({
     moduleId: module.id,
@@ -13,7 +13,7 @@ export class OrganisationComponent implements OnInit {
     users: User[] = [];
     loading = false;
 
-    constructor(private userService: UserService , private alertService: AlertService) {
+    constructor(private userService: UserService , private organisationService: OrganisationService, private alertService: AlertService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -28,6 +28,6 @@ export class OrganisationComponent implements OnInit {
     }
 
     private loadAllUsers() {
-        this.userService.getAll().subscribe((users) => { this.users = users.user;});
+        this.organisationService.getAll().subscribe((users) => { this.users = users.organisation;});
     }
 }

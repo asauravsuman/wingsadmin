@@ -13,11 +13,11 @@ import { routing }        from './app.routing';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, OrganisationService } from './_services/index';
 
 import { FooterComponent } from './shared/footer/index';
 import { MenuComponent } from './shared/menu/index';
-import { HomeComponent } from './home/index
+import { HomeComponent } from './home/index';
 import { OrganisationComponent } from './organisation/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -44,7 +44,7 @@ import { RegisterComponent } from './register/index';
         AlertService,
         AuthenticationService,
         UserService,
-
+        OrganisationService,
         // providers used to create fake backend
         fakeBackendProvider,
         MockBackend,
