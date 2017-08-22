@@ -1,7 +1,8 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
 import { User } from '../_models/index';
-import { AlertService, UserService, OrganisationService } from '../_services/index';
+import { AlertService, OrganisationService } from '../_services/index';
+import {Http} from "@angular/http";
 
 @Component({
     moduleId: module.id,
@@ -10,24 +11,33 @@ import { AlertService, UserService, OrganisationService } from '../_services/ind
 
 export class OrganisationComponent implements OnInit {
     currentUser: User;
-    users: User[] = [];
     loading = false;
 
-    constructor(private userService: UserService , private organisationService: OrganisationService, private alertService: AlertService) {
+    public data: any = [];
+    public filterQuery = "";
+    public rowsOnPage = 5;
+    public sortBy = "email";
+    public sortOrder = "asc";
+
+    constructor(private http: Http, private organisationService: OrganisationService, private alertService: AlertService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     ngOnInit() {
         this.loadAllUsers();
-        this.alertService.success('Loading .. ');
-        // this.loading = true;
-    }
-
-    deleteUser(id: number) {
-        this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
+        // this.alertService.success('Loading .. ');     
     }
 
     private loadAllUsers() {
-        this.organisationService.getAll().subscribe((users) => { this.users = users.organisation;});
+        this.organisationService.getAll().subscribe((users) => { this.data = users.organisation;});
     }
+
+    public toInt(num: string) {
+        return +num;
+    }
+
+    public sortByWordLength = (a: any) => {
+        return a.city.length;
+    }
+
 }

@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { DataTableModule } from "angular2-datatable";
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/index';
@@ -11,7 +12,7 @@ import { BaseRequestOptions } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
-import { AlertComponent } from './_directives/index';
+import { AlertComponent, DataFilterPipe } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService, OrganisationService } from './_services/index';
 
@@ -27,11 +28,13 @@ import { RegisterComponent } from './register/index';
         BrowserModule,
         FormsModule,
         HttpModule,
+        DataTableModule,
         routing
     ],
     declarations: [
         AppComponent,
         AlertComponent,
+        DataFilterPipe,
         FooterComponent,
         MenuComponent,
         HomeComponent,

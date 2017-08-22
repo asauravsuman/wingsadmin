@@ -25,7 +25,9 @@
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
             // other libraries
-            'rxjs': 'npm:rxjs'
+            'rxjs': 'npm:rxjs',
+            'angular2-datatable': 'npm:angular2-datatable',
+            'lodash': 'npm:lodash/lodash.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -35,6 +37,13 @@
             },
             rxjs: {
                 defaultExtension: 'js'
+            },
+            'angular2-datatable': {
+                main: 'index.js',
+                defaultExtension: 'js'
+            },
+            'lodash':{
+                defaultExtension: 'js'  
             }
         }
     });

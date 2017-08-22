@@ -32,3 +32,6 @@
 .sidebar-wrapper .menu-link{
 	color:#08143c;
 }
+.table-striped thead th a, .category{
+  color:#252422 !important; 
+}
