@@ -20,6 +20,8 @@ import { FooterComponent } from './shared/footer/index';
 import { MenuComponent } from './shared/menu/index';
 import { HomeComponent } from './home/index';
 import { OrganisationComponent } from './organisation/index';
+import { ProfileComponent } from './profile/index';
+import { SettingsComponent } from './settings/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 
@@ -39,6 +41,8 @@ import { RegisterComponent } from './register/index';
         MenuComponent,
         HomeComponent,
         OrganisationComponent,
+        ProfileComponent,
+        SettingsComponent,
         LoginComponent,
         RegisterComponent
     ],

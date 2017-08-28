@@ -2,6 +2,8 @@
 
 import { HomeComponent } from './home/index';
 import { OrganisationComponent } from './organisation/index';
+import { ProfileComponent } from './profile/index';
+import { SettingsComponent } from './settings/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AuthGuard } from './_guards/index';
@@ -9,6 +11,8 @@ import { AuthGuard } from './_guards/index';
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'organisation', component: OrganisationComponent, canActivate: [AuthGuard] },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
 

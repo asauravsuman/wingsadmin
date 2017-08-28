@@ -35,7 +35,10 @@ export class MenuComponent{
        		case 'organisation':
        			this.flagActiveOrganisation = 'active';
        		break;
-       		case 'settings':
+       		case 'profile':
+             this.flagActiveProfile = 'active';
+           break;
+           case 'settings':
        			this.flagActiveSettings = 'active';
        		break;
        		default:
