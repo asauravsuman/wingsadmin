@@ -23,6 +23,9 @@ import { HeaderComponent } from './shared/header/index';
 import { HomeComponent } from './home/index';
 import { OrganisationComponent } from './organisation/index';
 import { ProfileComponent } from './profile/index';
+import { UsersComponent } from './users/index';
+import { EmployeeComponent } from './employee/index';
+import { CoursesComponent } from './courses/index';
 import { SettingsComponent } from './settings/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -46,6 +49,9 @@ import { RegisterComponent } from './register/index';
         HomeComponent,
         OrganisationComponent,
         ProfileComponent,
+        UsersComponent,
+        EmployeeComponent,
+        CoursesComponent,
         SettingsComponent,
         LoginComponent,
         RegisterComponent

@@ -1,6 +1,6 @@
 ﻿import { Component, HostBinding } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-
+import { User } from '../../_models/index';
 @Component({
     moduleId: module.id,
     selector: 'menu-cmp',
@@ -13,9 +13,12 @@ export class MenuComponent{
     flagActiveProfile: string;
     flagActiveSettings: string;
     currentpath: string;
+    currentUser: User;
 
     constructor(
-        private route: ActivatedRoute) { }
+        private route: ActivatedRoute) { 
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    }
 
     ngOnInit() {
     	this.route.url.subscribe((params: Params) => {
@@ -26,6 +29,18 @@ export class MenuComponent{
     			this.flagActiveDashboard = 'active';
     		}
 	    });
+    }
+    isOrganisationAdmin(){
+        if(this.currentUser.role == 'organisationadmin'){
+            return true;
+        }
+        return false;
+    }
+    isSuperAdmin(){
+        if(this.currentUser.role == 'superadmin'){
+            return true;
+        }
+        return false;
     }
 
     activateMenuClass(urlparam: string) {
