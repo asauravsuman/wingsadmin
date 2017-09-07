@@ -10,6 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class MenuComponent{
     flagActiveDashboard: string;
     flagActiveOrganisation: string;
+    flagActiveProfile: string;
     flagActiveSettings: string;
     currentpath: string;
 

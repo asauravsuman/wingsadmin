@@ -18,6 +18,8 @@ import { AlertService, AuthenticationService, UserService, OrganisationService }
 
 import { FooterComponent } from './shared/footer/index';
 import { MenuComponent } from './shared/menu/index';
+import { LogoComponent } from './shared/logo/index';
+import { HeaderComponent } from './shared/header/index';
 import { HomeComponent } from './home/index';
 import { OrganisationComponent } from './organisation/index';
 import { ProfileComponent } from './profile/index';
@@ -37,6 +39,8 @@ import { RegisterComponent } from './register/index';
         AppComponent,
         AlertComponent,
         DataFilterPipe,
+        LogoComponent,
+        HeaderComponent,
         FooterComponent,
         MenuComponent,
         HomeComponent,

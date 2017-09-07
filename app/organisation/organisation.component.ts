@@ -24,12 +24,12 @@ export class OrganisationComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.loadAllUsers();
+        this.loadAllOrganisation();
         // this.alertService.success('Loading .. ');     
     }
 
-    private loadAllUsers() {
-        this.organisationService.getAll().subscribe((users) => { this.data = users.organisation;});
+    private loadAllOrganisation() {
+        this.organisationService.getAll().subscribe((orgs) => { this.data = orgs.organisation;});
     }
 
     public toInt(num: string) {

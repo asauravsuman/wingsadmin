@@ -9,7 +9,7 @@ export class AuthenticationService {
 
     login(username: string, password: string) {
         var user = { "user": { "email": username, "password": password }};
-        return this.http.post('http://localhost:3010/api/users/login', user, this.setHeader() )
+        return this.http.post('http://13.126.51.149:3010/api/users/login', user, this.setHeader() )
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let user = response.json(); console.log(user);

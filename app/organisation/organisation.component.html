@@ -1,137 +1,43 @@
-﻿<div class="sidebar" data-background-color="white" data-active-color="danger">
-<!--
-    Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
-    Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
--->
-
-    <div class="sidebar-wrapper">
-        <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text">
-                KIWINGS
-            </a>
+﻿<logo-cmp></logo-cmp>
+<div class="main-panel">
+    <header-cmp></header-cmp>
+    <div class="content">
+        <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Organisation</h4> 
+                <p class="category">Here is a subtitle for this table</p>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+                       [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr>
+                        <th><mfDefaultSorter by="name">Name</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="type">Type</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="createdAt">Created On</mfDefaultSorter> </th>
+                        <th><mfDefaultSorter by="">Address</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="">Contact</mfDefaultSorter></th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let row of mf.data">
+                        <td> {{row.name}}  </td>
+                        <td> {{row.type}} </td>
+                        <td> {{row.createdAt | date: 'mediumDate'}} </td>
+                        <td> {{row.address[0].city}} </td>
+                        <td> {{row.contact[0].name}} </td>
+                        <td> <i class="ti-eye"></i> </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <menu-cmp></menu-cmp>
+        </div>
+        </div>
+        </div>
     </div>
 </div>
-
-    <div class="main-panel">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar bar1"></span>
-                        <span class="icon-bar bar2"></span>
-                        <span class="icon-bar bar3"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Welcome {{currentUser.username | uppercase}}</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                    <alert></alert>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="ti-bell"></i>
-                                    <p class="notification">5</p>
-                                    <p>Notifications</p>
-                                    <b class="caret"></b>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="ti-settings"></i>
-                                <p>Settings</p>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-
-
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Organisation</h4> 
-                                <p class="category">Here is a subtitle for this table</p>
-                            </div>
-
-                            <div class="row hide">
-                                <div class="col-xs-2">
-                                    <label class="label-control">Rows on page</label>
-                                    <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
-                                        <option [ngValue]="5">5</option>
-                                        <option [ngValue]="10">10</option>
-                                        <option [ngValue]="15">15</option>
-                                    </select>
-                                </div>
-                                <div class="col-xs-4">
-                                    <div class="row">
-                                        <label class="col-xs-12 label-control">Sort by</label>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="row">
-                                            <select class="form-control input-sm" [(ngModel)]="sortBy">
-                                                <option ngValue="name">Name</option>
-                                                <option ngValue="email">Email</option>
-                                                <option ngValue="age">Age</option>
-                                                <option [ngValue]="sortByWordLength">City</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="row">
-                                            <select class="form-control input-sm" [(ngModel)]="sortOrder">
-                                                <option ngValue="asc">Ascending</option>
-                                                <option ngValue="desc">Descending</option>
-                                                <option ngValue="badValue">Bad value</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
-                                       [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
-                                    <thead>
-                                        <tr>
-                                        <th><mfDefaultSorter by="title">Name</mfDefaultSorter></th>
-                                        <th><mfDefaultSorter by="status">Status</mfDefaultSorter></th>
-                                        <th><mfDefaultSorter by="createdAt">Created On</mfDefaultSorter> </th>
-                                        <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr *ngFor="let row of mf.data">
-                                        <td> {{row.title}}  </td>
-                                        <td> {{row.status}} </td>
-                                        <td>  {{row.createdAt | date: 'mediumDate'}} </td>
-                                        <td> <i class="ti-trash"></i>  &nbsp;<i class="ti-eye"></i> </td>
-                                    </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="5"><mfBootstrapPaginator ></mfBootstrapPaginator></td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
