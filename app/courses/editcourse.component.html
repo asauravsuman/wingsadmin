@@ -1,0 +1,66 @@
+﻿<logo-cmp></logo-cmp>
+<div class="main-panel">
+<header-cmp></header-cmp>
+<div class="content">
+<div class="container-fluid">
+<div class="row">
+    <div class="col-lg-4 col-md-5">
+        <div class="card card-user">
+            <br><br><br><br>
+            <div class="content">
+                <div class="author">
+                  <img src="assets/img/faces/face-2.jpg" alt="Raised Image" class="img-rounded img-responsive img-raised">
+                  <h5 class="title title-height">{{currentUser.fullname}}<br />
+                     <a href="#"><small>{{currentUser.role }}</small></a>
+                  </h5>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-7">
+        <div  class="card">
+            <div class="header">
+                <h4 class="title">Edit Course 
+                <a href="/add-topic-to-course"><span><button class="btn btn-info btn-fill btn-xs btn-wd pull-right">Add Topic</button></span></a></h4> 
+            </div>
+            <div class="content">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Title</label>
+                                <input type="text" class="form-control border-input"  placeholder="Email" value="sa@gmail.com">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label >Department</label>
+                                <input type="email" class="form-control border-input" placeholder="Phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label >Description</label>
+                                <input type="email" class="form-control border-input" placeholder="Phone">
+                            </div>
+                        </div>
+                    </div>
+                           
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                    </div>
+                <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</div>
+</div>
+</div>

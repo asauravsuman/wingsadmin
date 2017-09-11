@@ -8,7 +8,7 @@ export class UserService {
     constructor(private http: Http) { }
 
     getAll() {
-        return this.http.get('http://13.126.51.149:3010/api/users', this.jwt()).map((response: Response) => response.json());
+        return this.http.get('http://13.126.51.149:3010/api/users/', this.jwt()).map((response: Response) => response.json());
     }
 
     getById(id: number) {

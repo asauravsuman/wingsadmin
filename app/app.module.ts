@@ -21,11 +21,11 @@ import { MenuComponent } from './shared/menu/index';
 import { LogoComponent } from './shared/logo/index';
 import { HeaderComponent } from './shared/header/index';
 import { HomeComponent } from './home/index';
-import { OrganisationComponent } from './organisation/index';
+import { OrganisationComponent, EditorganisationComponent } from './organisation/index';
 import { ProfileComponent } from './profile/index';
-import { UsersComponent } from './users/index';
-import { EmployeeComponent } from './employee/index';
-import { CoursesComponent } from './courses/index';
+import { UsersComponent, EdituserComponent } from './users/index';
+import { EmployeeComponent, EditemployeeComponent } from './employee/index';
+import { CoursesComponent, EditcourseComponent, AddtopictocourseComponent } from './courses/index';
 import { SettingsComponent } from './settings/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -47,11 +47,11 @@ import { RegisterComponent } from './register/index';
         FooterComponent,
         MenuComponent,
         HomeComponent,
-        OrganisationComponent,
+        OrganisationComponent, EditorganisationComponent,
         ProfileComponent,
-        UsersComponent,
-        EmployeeComponent,
-        CoursesComponent,
+        UsersComponent, EdituserComponent,
+        EmployeeComponent, EditemployeeComponent,
+        CoursesComponent, EditcourseComponent, AddtopictocourseComponent,
         SettingsComponent,
         LoginComponent,
         RegisterComponent

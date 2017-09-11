@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
     public rowsOnPage = 5;
     public sortBy = "email";
     public sortOrder = "asc";
+    public activeTab = "profile";
 
     constructor(private http: Http, private organisationService: OrganisationService, private alertService: AlertService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -38,6 +39,9 @@ export class ProfileComponent implements OnInit {
 
     public sortByWordLength = (a: any) => {
         return a.city.length;
+    }
+    clickTab(mode:string){
+        this.activeTab = mode;
     }
 
 }
