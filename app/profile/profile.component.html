@@ -25,46 +25,50 @@
                 <button (click)="clickTab('password')" class="btn btn-info btn-fill btn-xs btn-wd pull-right">Change Password</button></span></h4> 
             </div>
             <div class="content">
-                <form>
+                <form name="form" (ngSubmit)="f.form.valid && saveProfile()" #f="ngForm" novalidate>
                     <div class="row">
                         <div class="col-md-4 ">
-                            <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text"  class="form-control border-input input-sm"  placeholder="First Name" value="">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstName.valid  }">
+                                <label>First Name:<span class="asterik">*</span>
+                                    <span *ngIf="f.submitted && !firstName.valid" class="errmsg">Enter First Name</span> </label>
+                                <input type="text" class="form-control border-input input-sm" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" placeholder="First Name" required/>
                             </div>
                         </div>
                         <div class="col-md-4 ">
                             <div class="form-group">
-                                <label>Middle Name</label>
-                                <input type="text"  class="form-control border-input input-sm"  placeholder="Middle Name" value="">
+                                <label>Middle Name:</label>
+                                <input type="text" class="form-control border-input input-sm" name="middleName" placeholder="Middle Name">
                             </div>
                         </div>
                         <div class="col-md-4 ">
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text"  class="form-control border-input input-sm"  placeholder="Last Name" value="">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastName.valid }">
+                                <label>Last Name:<span class="asterik">*</span>
+                                    <span *ngIf="f.submitted && !lastName.valid" class="errmsg">Enter Last Name</span> </label>
+                                <input type="text" class="form-control border-input input-sm" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required placeholder="Last Name">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="text" class="form-control border-input" disabled placeholder="Email" value="sa@gmail.com">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+                                <label>Email:<span class="asterik">*</span>
+                                    <span *ngIf="f.submitted && !email.valid" class="errmsg">Enter Email</span> </label>
+                                    <input type="email" class="form-control border-input" disabled name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="Email" value="sa@gmail.com">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label >Phone</label>
-                                <input type="email" class="form-control border-input" placeholder="Phone">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !phone.valid }">
+                                <label>Phone:<span class="asterik">*</span>
+                                    <span *ngIf="f.submitted && !phone.valid" class="errmsg">Enter Phone</span> </label>
+                                <input type="text" class="form-control border-input" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required placeholder="Phone">
                             </div>
                         </div>
                     </div>
                            
                     <div class="text-center">
-                        <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                        <button type="submit" [disabled]="loading" class="btn btn-info btn-fill btn-wd">Update Profile</button>
                     </div>
                 <div class="clearfix"></div>
                 </form>
@@ -76,20 +80,22 @@
                 <button (click)="clickTab('profile')" class="btn btn-info btn-fill btn-xs btn-wd pull-right">Edit Profile</button></span></h4> 
             </div>
             <div class="content">
-                <form>
+                <form name="form" (ngSubmit)="f.form.valid && changePassword()" #f="ngForm" novalidate>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label >Password</label>
-                                <input type="email" class="form-control border-input" placeholder="Phone">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid  }">
+                                <label>Password:<span class="asterik">*</span>
+                                    <span *ngIf="f.submitted && !password.valid" class="errmsg">Enter Password</span> </label>
+                                <input type="text" class="form-control border-input input-sm" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="First Name" required/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label >Confirm Password</label>
-                                <input type="email" class="form-control border-input" placeholder="Phone">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !confirmPassword.valid  }">
+                                <label>Confirm Password:<span class="asterik">*</span>
+                                    <span *ngIf="f.submitted && !confirmPassword.valid" class="errmsg">Enter Confirm Password</span> </label>
+                                <input type="text" class="form-control border-input input-sm" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" placeholder="Confirm Password" required/>
                             </div>
                         </div>
                     </div>

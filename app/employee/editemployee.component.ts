@@ -13,6 +13,7 @@ export class EditemployeeComponent implements OnInit {
     users: User[] = [];
     loading = false;
 
+ model: any = {firstname: '', lastname: '',email:'',phone:''};
     constructor( private alertService: AlertService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
@@ -20,5 +21,8 @@ export class EditemployeeComponent implements OnInit {
     ngOnInit() {
         // this.alertService.success('Loading .. ');
         // this.loading = true;
+    }
+    saveEmployee(){
+        
     }
 }

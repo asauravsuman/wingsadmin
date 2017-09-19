@@ -47,4 +47,24 @@
 .card-user .title{
     line-height: 20px;
 }
+.card label{
+    color: black;
+    width: 100%;
+}
+.author .img-rounded{
+    margin: 0 auto;
+}
+.card-user .title{
+    line-height: 20px;
+}
+.content form .errmsg{
+  float:right;
+  color:#A00;
+  font-size: .8em;
+}
+.content form .asterik{
+  color:#A00;
+  font-size: .9em;
+}
+
     

@@ -10,7 +10,7 @@ import {Http} from "@angular/http";
 })
 
 export class ProfileComponent implements OnInit {
-    currentUser: User;
+    currentUser: any = {};
     loading = false;
 
     public data: any = [];
@@ -19,9 +19,10 @@ export class ProfileComponent implements OnInit {
     public sortBy = "email";
     public sortOrder = "asc";
     public activeTab = "profile";
-
+    model: any = {firstname: '', lastname: '',email:'',phone:''};
     constructor(private http: Http, private organisationService: OrganisationService, private alertService: AlertService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.model.email = this.currentUser.email;
     }
 
     ngOnInit() {
@@ -42,6 +43,12 @@ export class ProfileComponent implements OnInit {
     }
     clickTab(mode:string){
         this.activeTab = mode;
+    }
+    saveProfile(){
+
+    }
+    changePassword(){
+
     }
 
 }
