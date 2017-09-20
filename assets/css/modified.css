@@ -66,5 +66,8 @@
   color:#A00;
   font-size: .9em;
 }
-
+#addtopic ul .active{
+  color:#DD0330;
+  cursor: pointer;
+}
     

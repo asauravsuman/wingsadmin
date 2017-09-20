@@ -26,8 +26,9 @@
 
             // other libraries
             'rxjs': 'npm:rxjs',
+            'lodash': 'npm:lodash/lodash.js',
             'angular2-datatable': 'npm:angular2-datatable',
-            'lodash': 'npm:lodash/lodash.js'
+            'angular2-select': 'npm:angular2-select'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -44,6 +45,10 @@
             },
             'lodash':{
                 defaultExtension: 'js'  
+            },
+            'angular2-select': {
+                main: 'index.js',
+                defaultExtension: 'js'
             }
         }
     });

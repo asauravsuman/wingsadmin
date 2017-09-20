@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { DataTableModule } from "angular2-datatable";
-
+import {SelectModule} from 'angular2-select';
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/index';
 import { MockBackend, MockConnection } from '@angular/http/testing';
@@ -14,7 +14,7 @@ import { routing }        from './app.routing';
 
 import { AlertComponent, DataFilterPipe } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService, OrganisationService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, OrganisationService, CourseService } from './_services/index';
 
 import { FooterComponent } from './shared/footer/index';
 import { MenuComponent } from './shared/menu/index';
@@ -36,7 +36,8 @@ import { RegisterComponent } from './register/index';
         FormsModule,
         HttpModule,
         DataTableModule,
-        routing
+        routing,
+        SelectModule
     ],
     declarations: [
         AppComponent,
@@ -62,6 +63,7 @@ import { RegisterComponent } from './register/index';
         AuthenticationService,
         UserService,
         OrganisationService,
+        CourseService,
         // providers used to create fake backend
         fakeBackendProvider,
         MockBackend,
