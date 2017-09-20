@@ -16,7 +16,7 @@ export class EditcourseComponent implements OnInit {
     model: any = { title: '', description:'', branch: [], department: [] };
 
 
-    ListBranch: Array<any> ;
+    ListBranch: any = [];
     ListDepartment: Array<any> ;
    // mySelectValue: Array<string>; // Array of strings for multi select, string for single select.
 
@@ -28,16 +28,8 @@ export class EditcourseComponent implements OnInit {
     ngOnInit() {
         // this.alertService.success('Loading .. ');
         // this.loading = true;
-        this.ListBranch = [
-            {value: 'a', label: 'Alpha'},
-            {value: 'b', label: 'Beta'},
-            {value: 'c', label: 'Gamma'}
-        ];
-        this.ListDepartment = [
-            {value: 'a', label: 'IT'},
-            {value: 'b', label: 'HR'},
-            {value: 'c', label: 'NETWORKING'}
-        ];
+        this.getBranch();
+        this.getDepartment();
     }
     saveCourse(){
         this.alertService.success('Saving in progress ... ');
@@ -49,5 +41,37 @@ export class EditcourseComponent implements OnInit {
                 error => {
                     this.alertService.error('Please try again.');
                 });
+    }
+    private getDepartment() {
+        this.courseService.getDepartment().subscribe((response) => {
+            var tempDepartment = [];
+            for (var i=0; i<response.department.length; i++){ 
+                if(response.department[i].name){ 
+                    var temp = {value:'', label:''};
+                    temp.value = response.department[i].name;
+                    temp.label = response.department[i].name;
+                    tempDepartment.push(temp);
+                }
+            }
+            this.ListDepartment = tempDepartment;
+
+           // this.data = response.branch;
+        });
+    }
+    private getBranch() {
+        this.courseService.getBranch().subscribe((response) => {
+            var tempBranch = [];
+            for (var i=0; i<response.branch.length; i++){ 
+                if(response.branch[i].name){ 
+                    var temp = {value:'', label:''};
+                    temp.value = response.branch[i].name;
+                    temp.label = response.branch[i].name;
+                    tempBranch.push(temp);
+                }
+            }
+            this.ListBranch = tempBranch;
+
+           // this.data = response.branch;
+        });
     }
 }

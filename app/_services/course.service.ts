@@ -27,6 +27,12 @@ export class CourseService {
         return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
+    getBranch() {
+        return this.http.get('http://13.126.51.149:3010/api/branch/', this.jwt()).map((response: Response) => response.json());
+    }
+    getDepartment() {
+        return this.http.get('http://13.126.51.149:3010/api/department/', this.jwt()).map((response: Response) => response.json());
+    }
     // private helper methods
 
     private jwt() {
