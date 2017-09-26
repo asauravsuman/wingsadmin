@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
-import { User } from '../_models/index';
-import { AlertService, UserService } from '../_services/index';
+import { User } from '../../_models/index';
+import { AlertService, UserService } from '../../_services/index';
 
 @Component({
     moduleId: module.id,
@@ -18,17 +18,21 @@ export class EmployeeComponent implements OnInit {
     public rowsOnPage = 5;
     public sortBy = "email";
     public sortOrder = "asc";
+    model: any = {id: ''};
 
     constructor( private alertService: AlertService, private userService: UserService,) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.model.id = this.currentUser.organisation;
     }
 
     ngOnInit() {
+        this.alertService.success('Loading .. ');
         this.loadUsers();
-        // this.alertService.success('Loading .. ');
-        // this.loading = true;
     }
     private loadUsers() {
-        this.userService.getAll().subscribe((users) => { this.data = users.user;});
+        this.userService.getEmployeeByOrganisation(this.model).subscribe((users) => { 
+            this.data = users.user;
+            this.alertService.success('Loaded.');
+        });
     }
 }

@@ -11,12 +11,19 @@ export class UserService {
         return this.http.get('http://13.126.51.149:3010/api/users/', this.jwt()).map((response: Response) => response.json());
     }
 
-    getById(id: number) {
-        return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+    getEmployeeByOrganisation(org: {}) {
+        var objData = {'organisation': org};
+        return this.http.post('http://13.126.51.149:3010/api/organisation/getallemployee', objData, this.jwt()).map((response: Response) => response.json());
     }
 
-    create(user: User) {
-        return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
+    getById(user: {}) {
+        var objData = {'user': user};
+        return this.http.post('http://13.126.51.149:3010/api/users/getbyid/', objData,  this.jwt()).map((response: Response) => response.json());
+    }
+
+    create(user: {}) {
+        var objData = {'user': user};
+        return this.http.post('http://13.126.51.149:3010/api/user/', objData, this.jwt()).map((response: Response) => response.json());
     }
 
     update(user: User) {

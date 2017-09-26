@@ -24,7 +24,7 @@ import { HomeComponent } from './home/index';
 import { OrganisationComponent, EditorganisationComponent } from './organisation/index';
 import { ProfileComponent } from './profile/index';
 import { UsersComponent, EdituserComponent } from './users/index';
-import { EmployeeComponent, EditemployeeComponent } from './employee/index';
+import { EmployeeComponent, AddemployeeComponent, EditemployeeComponent } from './employee/index';
 import { CoursesComponent, EditcourseComponent, AddtopictocourseComponent } from './courses/index';
 import { SettingsComponent } from './settings/index';
 import { LoginComponent } from './login/index';
@@ -51,7 +51,7 @@ import { RegisterComponent } from './register/index';
         OrganisationComponent, EditorganisationComponent,
         ProfileComponent,
         UsersComponent, EdituserComponent,
-        EmployeeComponent, EditemployeeComponent,
+        EmployeeComponent, AddemployeeComponent, EditemployeeComponent,
         CoursesComponent, EditcourseComponent, AddtopictocourseComponent,
         SettingsComponent,
         LoginComponent,

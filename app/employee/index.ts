@@ -1,2 +1,3 @@
-﻿export * from './employee.component';
-export * from './editemployee.component';
+﻿export * from './employee/employee.component';
+export * from './editemployee/editemployee.component';
+export * from './addemployee/addemployee.component';

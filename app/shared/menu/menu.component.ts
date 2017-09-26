@@ -69,7 +69,10 @@ export class MenuComponent{
           case 'employee':
              this.flagActiveEmployee = 'active';
            break;
-          case 'edit-employee':
+          case 'add-employee':
+             this.flagActiveEmployee = 'active';
+           break;
+           case 'edit-employee':
              this.flagActiveEmployee = 'active';
            break; 
           case 'users':
