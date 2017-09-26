@@ -20,7 +20,13 @@ export class UserService {
     }
 
     update(user: User) {
-        return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
+        var objData = {'user': user};
+        return this.http.put('http://13.126.51.149:3010/api/user/', objData, this.jwt()).map((response: Response) => response.json());
+    }
+
+    changepassword(user: any) {
+        var objData = {'user': user};
+        return this.http.put('http://13.126.51.149:3010/api/user/changepassword/', objData, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
@@ -33,7 +39,7 @@ export class UserService {
         // create authorization header with jwt token
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
-            let headers = new Headers({ 'Authorization': 'Bearer '+currentUser.token});
+            let headers = new Headers({ 'Authorization': 'Bearer '+currentUser.token, 'Content-Type': 'application/json'});
             return new RequestOptions({ headers: headers });
         }
     }

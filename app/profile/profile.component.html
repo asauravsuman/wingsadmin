@@ -1,4 +1,4 @@
-﻿<logo-cmp></logo-cmp>
+﻿<logo-cmp></logo-cmp> 
 <div class="main-panel">
 <header-cmp></header-cmp>
 <div class="content">
@@ -28,32 +28,40 @@
                 <form name="form" (ngSubmit)="f.form.valid && saveProfile()" #f="ngForm" novalidate>
                     <div class="row">
                         <div class="col-md-4 ">
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstName.valid  }">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !first.valid  }">
                                 <label>First Name:<span class="asterik">*</span>
-                                    <span *ngIf="f.submitted && !firstName.valid" class="errmsg">Enter First Name</span> </label>
-                                <input type="text" class="form-control border-input input-sm" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" placeholder="First Name" required/>
+                                    <span *ngIf="f.submitted && !first.valid" class="errmsg">Enter First Name</span> </label>
+                                <input type="text" class="form-control border-input input-sm" name="first" [(ngModel)]="model.first" #first="ngModel" placeholder="First Name" required/>
                             </div>
                         </div>
                         <div class="col-md-4 ">
                             <div class="form-group">
                                 <label>Middle Name:</label>
-                                <input type="text" class="form-control border-input input-sm" name="middleName" placeholder="Middle Name">
+                                <input type="text" class="form-control border-input input-sm" name="middle" [(ngModel)]="model.middle" #middle="ngModel" placeholder="Middle Name">
                             </div>
                         </div>
                         <div class="col-md-4 ">
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastName.valid }">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last.valid }">
                                 <label>Last Name:<span class="asterik">*</span>
-                                    <span *ngIf="f.submitted && !lastName.valid" class="errmsg">Enter Last Name</span> </label>
-                                <input type="text" class="form-control border-input input-sm" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required placeholder="Last Name">
+                                    <span *ngIf="f.submitted && !last.valid" class="errmsg">Enter Last Name</span> </label>
+                                <input type="text" class="form-control border-input input-sm" name="last" [(ngModel)]="model.last" #last="ngModel" required placeholder="Last Name">
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-12">
                             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
                                 <label>Email:<span class="asterik">*</span>
                                     <span *ngIf="f.submitted && !email.valid" class="errmsg">Enter Email</span> </label>
-                                    <input type="email" class="form-control border-input" disabled name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="Email" value="sa@gmail.com">
+                                    <input type="email" class="form-control border-input" disabled name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="Email" >
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Email:</label>
+                                    <input type="email" class="form-control border-input" disabled name="email" [(ngModel)]="model.email" #email="ngModel" required placeholder="Email" >
                             </div>
                         </div>
                     </div>
@@ -84,18 +92,27 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid  }">
-                                <label>Password:<span class="asterik">*</span>
-                                    <span *ngIf="f.submitted && !password.valid" class="errmsg">Enter Password</span> </label>
-                                <input type="text" class="form-control border-input input-sm" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="First Name" required/>
+                                <label>Old Password:<span class="asterik">*</span>
+                                    <span *ngIf="f.submitted && !oldpassword.valid" class="errmsg">Enter Password</span> </label>
+                                <input type="text" class="form-control border-input input-sm" name="oldpassword" [(ngModel)]="modelPassword.oldpassword" #oldpassword="ngModel" placeholder="Old Password" required/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !confirmPassword.valid  }">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid  }">
+                                <label>Password:<span class="asterik">*</span>
+                                    <span *ngIf="f.submitted && !password.valid && password == confirmpassword " class="errmsg">Enter Password</span> </label>
+                                <input type="text" class="form-control border-input input-sm" name="password" [(ngModel)]="modelPassword.password" #password="ngModel" placeholder="Password" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !confirmpassword.valid  }">
                                 <label>Confirm Password:<span class="asterik">*</span>
-                                    <span *ngIf="f.submitted && !confirmPassword.valid" class="errmsg">Enter Confirm Password</span> </label>
-                                <input type="text" class="form-control border-input input-sm" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" placeholder="Confirm Password" required/>
+                                    <span *ngIf="f.submitted && !confirmpassword.valid" class="errmsg">Enter Confirm Password</span> </label>
+                                <input type="text" class="form-control border-input input-sm" name="confirmpassword" [(ngModel)]="modelPassword.confirmpassword" #confirmpassword="ngModel" placeholder="Confirm Password" required/>
                             </div>
                         </div>
                     </div>
