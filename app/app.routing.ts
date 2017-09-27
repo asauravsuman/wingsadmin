@@ -5,7 +5,7 @@ import { OrganisationComponent, EditorganisationComponent } from './organisation
 import { ProfileComponent } from './profile/index';
 import { UsersComponent, EdituserComponent } from './users/index';
 import { EmployeeComponent, AddemployeeComponent, EditemployeeComponent} from './employee/index';
-import { CoursesComponent, EditcourseComponent, AddtopictocourseComponent } from './courses/index';
+import { CoursesComponent, AddcourseComponent, EditcourseComponent, AddtopictocourseComponent } from './courses/index';
 import { SettingsComponent } from './settings/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -22,7 +22,8 @@ const appRoutes: Routes = [
     { path: 'add-employee', component: AddemployeeComponent, canActivate: [AuthGuard] },
     { path: 'edit-employee/:id', component: EditemployeeComponent, canActivate: [AuthGuard] },
     { path: 'courses', component: CoursesComponent, canActivate: [AuthGuard] },
-    { path: 'edit-course', component: EditcourseComponent, canActivate: [AuthGuard] },
+    { path: 'add-course', component: AddcourseComponent, canActivate: [AuthGuard] },
+    { path: 'edit-course/:id', component: EditcourseComponent, canActivate: [AuthGuard] },
     { path: 'add-topic-to-course', component: AddtopictocourseComponent, canActivate: [AuthGuard] },
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },

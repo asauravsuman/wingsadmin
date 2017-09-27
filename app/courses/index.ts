@@ -1,3 +1,4 @@
-﻿export * from './courses.component';
-export * from './editcourse.component';
-export * from './addtopictocourse.component';
+﻿export * from './courses/courses.component';
+export * from './addcourse/addcourse.component';
+export * from './editcourse/editcourse.component';
+export * from './addtopictocourses/addtopictocourse.component';

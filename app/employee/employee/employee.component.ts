@@ -35,4 +35,12 @@ export class EmployeeComponent implements OnInit {
             this.alertService.success('Loaded.');
         });
     }
+
+    public toInt(num: string) {
+        return +num;
+    }
+
+    public sortByWordLength = (a: any) => {
+        return a.city.length;
+    }
 }

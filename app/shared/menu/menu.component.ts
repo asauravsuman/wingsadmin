@@ -60,6 +60,9 @@ export class MenuComponent{
           case 'courses':
              this.flagActiveCourses = 'active';
            break;
+          case 'add-course':
+             this.flagActiveCourses = 'active';
+           break;
           case 'edit-course':
              this.flagActiveCourses = 'active';
            break; 

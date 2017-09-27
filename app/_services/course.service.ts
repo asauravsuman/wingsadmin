@@ -8,11 +8,12 @@ export class CourseService {
     constructor(private http: Http) { }
 
     getAll() {
-        return this.http.get('http://13.126.51.149:3010/api/users/', this.jwt()).map((response: Response) => response.json());
+        return this.http.get('http://13.126.51.149:3010/api/courses/', this.jwt()).map((response: Response) => response.json());
     }
 
-    getById(id: number) {
-        return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+    getById(course: {}) {
+        var objData = {'course': course};
+        return this.http.post('http://13.126.51.149:3010/api/courses/getbyid/', objData,  this.jwt()).map((response: Response) => response.json());
     }
 
     create(course: any = {}) {
@@ -39,7 +40,7 @@ export class CourseService {
         // create authorization header with jwt token
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
-            let headers = new Headers({ 'Authorization': 'Bearer '+currentUser.token});
+            let headers = new Headers({ 'Authorization': 'Bearer '+currentUser.token , 'Content-Type': 'application/json'});
             return new RequestOptions({ headers: headers });
         }
     }

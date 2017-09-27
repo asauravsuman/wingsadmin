@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
-import { User } from '../_models/index';
-import { AlertService, UserService } from '../_services/index';
+import { User } from '../../_models/index';
+import { AlertService, CourseService } from '../../_services/index';
 
 @Component({
     moduleId: module.id,
@@ -18,7 +18,7 @@ export class CoursesComponent implements OnInit {
     public rowsOnPage = 5;
     public sortBy = "email";
     public sortOrder = "asc";
-    constructor( private alertService: AlertService ,private userService: UserService) {
+    constructor( private alertService: AlertService ,private courseService: CourseService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -28,6 +28,6 @@ export class CoursesComponent implements OnInit {
         // this.loading = true;
     }
     private loadUsers() {
-        this.userService.getAll().subscribe((users) => { this.data = users.user;});
+        this.courseService.getAll().subscribe((courses) => { this.data = courses.courses;});
     }
 }

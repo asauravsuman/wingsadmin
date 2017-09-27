@@ -15,12 +15,18 @@
                     <thead>
                         <tr>
                         <th><mfDefaultSorter by="name">Name</mfDefaultSorter></th>
-                        <th><mfDefaultSorter by="type">Email</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="email">Email</mfDefaultSorter></th>
                         <th><mfDefaultSorter by="createdAt">Created On</mfDefaultSorter> </th>
-                        <th><mfDefaultSorter by="">Phone</mfDefaultSorter></th>
-                        <th><mfDefaultSorter by="">Role</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="phone">Phone</mfDefaultSorter></th>
+                        <th><mfDefaultSorter by="role">Role</mfDefaultSorter></th>
                         <th>Action</th>
                         </tr>
+                        <!-- <tr>
+                            <th colspan="5">
+                                Filter by name:
+                                <input class="form-control" [(ngModel)]="filterQuery"/>
+                            </th>
+                        </tr> -->
                     </thead>
                     <tbody>
                     <tr *ngFor="let row of mf.data">
@@ -34,6 +40,7 @@
                         </td>
                     </tr>
                     </tbody>
+                    <tfoot><tr><td colspan="10"><mfBootstrapPaginator ></mfBootstrapPaginator></td></tr></tfoot>
                 </table>
         </div>
     </div>

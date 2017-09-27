@@ -1,7 +1,8 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core'; 
+import { RouterModule, ActivatedRoute } from '@angular/router';
 
-import { User } from '../_models/index';
-import { AlertService, CourseService } from '../_services/index';
+import { User } from '../../_models/index';
+import { AlertService, CourseService } from '../../_services/index';
 
 @Component({
     moduleId: module.id,
@@ -13,7 +14,9 @@ export class EditcourseComponent implements OnInit {
     users: User[] = [];
     loading = false;
     // model: any = {title: '', description:'', branch:Array, department:Array};
-    model: any = { title: '', description:'', branch: [], department: [] };
+    model: any = { id:'', title: '', description:'', branch: [], department: [] };
+    course: any = {id: ''};
+    // {"courses":{"title":"First Course", "description":"description ","status": "Active","search": "first","accesstag": "guest"} }
 
 
     ListBranch: any = [];
@@ -21,8 +24,9 @@ export class EditcourseComponent implements OnInit {
    // mySelectValue: Array<string>; // Array of strings for multi select, string for single select.
 
 
-    constructor( private alertService: AlertService, private courseService: CourseService) {
+    constructor(private route: ActivatedRoute, private alertService: AlertService, private courseService: CourseService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.course.id=this.route.snapshot.params['id'];
     }
 
     ngOnInit() {
@@ -30,6 +34,17 @@ export class EditcourseComponent implements OnInit {
         // this.loading = true;
         this.getBranch();
         this.getDepartment();
+        this.alertService.success('Fetching .. ');
+        this.getCourse();
+    }
+    getCourse(){
+        this.courseService.getById(this.course).subscribe((resCourse) => { 
+            this.model.id = resCourse.course.id;
+            this.model.title = resCourse.course.title;
+            this.model.description = resCourse.course.description;
+
+            this.alertService.success('Course fetched successfully.');
+        });
     }
     saveCourse(){
         this.alertService.success('Saving in progress ... ');
