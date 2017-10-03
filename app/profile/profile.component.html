@@ -9,10 +9,11 @@
             <br><br><br><br>
             <div class="content">
                 <div class="author">
-                  <img src="assets/img/faces/face-2.jpg" alt="Raised Image" class="img-rounded img-responsive img-raised">
+                  <img [src]="model.image"  alt="Raised Image" class="img-rounded img-responsive img-raised">
                   <h5 class="title title-height">{{currentUser.fullname}}<br />
                      <a href="#"><small>{{currentUser.role }}</small></a>
                   </h5>
+                  <dropzone [config]="config" [message]="'Change your profile image'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></dropzone>
                 </div>
             </div>
             <hr>

@@ -5,7 +5,7 @@ import { User } from '../../_models/index';
 import { AlertService, CourseService } from '../../_services/index';
 
 @Component({
-    moduleId: module.id,
+    moduleId: module.id, 
     templateUrl: 'editcourse.component.html'
 })
 
@@ -14,8 +14,10 @@ export class EditcourseComponent implements OnInit {
     users: User[] = [];
     loading = false;
     // model: any = {title: '', description:'', branch:Array, department:Array};
-    model: any = { id:'', title: '', description:'', branch: [], department: [] };
+    model: any = { id:'', title: '', description:'', branch: '', department: '' };
     course: any = {id: ''};
+    selDepartment: any = ["59c1f61b036c5836174de111"];
+    selBranch: any = [];
     // {"courses":{"title":"First Course", "description":"description ","status": "Active","search": "first","accesstag": "guest"} }
 
 
@@ -37,18 +39,33 @@ export class EditcourseComponent implements OnInit {
         this.alertService.success('Fetching .. ');
         this.getCourse();
     }
+    onDepartmentSelection(item: any) {
+        this.selDepartment.push(item.value);
+        //console.log('- selected (value: ' + item.value  + ', label:' + item.label + ')');
+    }
+    onBranchSelection(item: any) {
+        this.selBranch.push(item.value);
+    }
     getCourse(){
         this.courseService.getById(this.course).subscribe((resCourse) => { 
-            this.model.id = resCourse.course.id;
+            this.model.id = this.course.id;
             this.model.title = resCourse.course.title;
             this.model.description = resCourse.course.description;
 
+              resCourse.course.department.forEach(function(value:any){
+                //this.selDepartment.push(value.toString());
+                console.log(value);
+
+              });
+            
             this.alertService.success('Course fetched successfully.');
         });
     }
     saveCourse(){
         this.alertService.success('Saving in progress ... ');
-        this.courseService.create(this.model)
+        this.model.department = JSON.stringify(this.selDepartment); 
+        this.model.branch = JSON.stringify(this.selBranch);
+        this.courseService.update(this.model)
             .subscribe(
                 data => {
                     this.alertService.success('Saved successfully.');
@@ -63,7 +80,7 @@ export class EditcourseComponent implements OnInit {
             for (var i=0; i<response.department.length; i++){ 
                 if(response.department[i].name){ 
                     var temp = {value:'', label:''};
-                    temp.value = response.department[i].name;
+                    temp.value = response.department[i]._id;
                     temp.label = response.department[i].name;
                     tempDepartment.push(temp);
                 }
@@ -79,7 +96,7 @@ export class EditcourseComponent implements OnInit {
             for (var i=0; i<response.branch.length; i++){ 
                 if(response.branch[i].name){ 
                     var temp = {value:'', label:''};
-                    temp.value = response.branch[i].name;
+                    temp.value = response.branch[i]._id;
                     temp.label = response.branch[i].name;
                     tempBranch.push(temp);
                 }

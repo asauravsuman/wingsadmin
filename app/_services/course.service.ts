@@ -17,7 +17,12 @@ export class CourseService {
     }
 
     create(course: any = {}) {
-        return this.http.post('http://localhost:3010/api/course/add', course, this.jwt()).map((response: Response) => response.json());
+        var objData = {'courses': course};
+        return this.http.post('http://13.126.51.149:3010/api/courses/add', objData, this.jwt()).map((response: Response) => response.json());
+    }
+    update(course: any = {}) {
+        var objData = {'courses': course};
+        return this.http.post('http://13.126.51.149:3010/api/courses/update', objData, this.jwt()).map((response: Response) => response.json());
     }
 
     // update(user: User) {

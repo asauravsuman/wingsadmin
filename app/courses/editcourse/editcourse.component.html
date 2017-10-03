@@ -41,9 +41,9 @@
                                 <label for="Department">Department<span class="asterik">*</span>
                                     <span class="errmsg">Enter Department</span> </label> <!-- *ngIf="f.submitted && !department.valid" -->
                                     <ng-select name="department"
+                                            (selected)="onDepartmentSelection($event)"
                                             [multiple]="true"
-                                            [options]="ListDepartment"
-                                            [(ngModel)]="model.department">
+                                            [options]="ListDepartment">
                                     </ng-select>
                                 <!-- <input type="text" class="form-control border-input"  name="department" [(ngModel)]="model.department" #department="ngModel" placeholder="Department" required> -->
                             </div>
@@ -55,9 +55,9 @@
                                 <label for="Branch">Branch<span class="asterik">*</span>
                                     <span  class="errmsg">Enter Branch</span> </label> <!-- *ngIf="f.submitted && !branch.valid" -->
                                     <ng-select name="branch"
+                                            (selected)="onBranchSelection($event)"
                                             [multiple]="true"
-                                            [options]="ListBranch"
-                                            [(ngModel)]="model.branch">
+                                            [options]="ListBranch">
                                     </ng-select>
                                 <!-- <input type="text" class="form-control border-input"  name="branch" [(ngModel)]="model.branch" #branch="ngModel" placeholder="Branch" required> -->
                             </div>

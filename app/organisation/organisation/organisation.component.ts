@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
-import { User } from '../_models/index';
-import { AlertService, OrganisationService } from '../_services/index';
+import { User } from '../../_models/index';
+import { AlertService, OrganisationService } from '../../_services/index';
 import {Http} from "@angular/http";
 
 @Component({

@@ -54,6 +54,9 @@ export class MenuComponent{
        		case 'organisation':
        			this.flagActiveOrganisation = 'active';
        		break;
+          case 'add-organisation':
+             this.flagActiveOrganisation = 'active';
+           break;
           case 'edit-organisation':
              this.flagActiveOrganisation = 'active';
            break; 

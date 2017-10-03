@@ -28,8 +28,7 @@
             'rxjs': 'npm:rxjs',
             'lodash': 'npm:lodash/lodash.js',
             'angular2-datatable': 'npm:angular2-datatable',
-            'angular2-select': 'npm:angular2-select',
-            'ngx-dropzone-wrapper': 'npm:ngx-dropzone-wrapper'
+            'angular2-select': 'npm:angular2-select'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -49,10 +48,6 @@
             },
             'angular2-select': {
                 main: 'index.js',
-                defaultExtension: 'js'
-            },
-            'ngx-dropzone-wrapper': {
-                main: 'bundles/ngx-dropzone-wrapper.umd.js',
                 defaultExtension: 'js'
             }
         }

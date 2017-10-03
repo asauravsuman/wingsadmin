@@ -1,7 +1,7 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/index';
-import { OrganisationComponent, EditorganisationComponent } from './organisation/index';
+import { OrganisationComponent, EditorganisationComponent ,AddorganisationComponent } from './organisation/index';
 import { ProfileComponent } from './profile/index';
 import { UsersComponent, EdituserComponent } from './users/index';
 import { EmployeeComponent, AddemployeeComponent, EditemployeeComponent} from './employee/index';
@@ -14,7 +14,8 @@ import { AuthGuard } from './_guards/index';
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'organisation', component: OrganisationComponent, canActivate: [AuthGuard] },
-    { path: 'edit-organisation', component: EditorganisationComponent, canActivate: [AuthGuard] },
+    { path: 'edit-organisation/:id', component: EditorganisationComponent, canActivate: [AuthGuard] },
+    { path: 'add-organisation', component: AddorganisationComponent, canActivate: [AuthGuard] },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
     { path: 'edit-user', component: EdituserComponent, canActivate: [AuthGuard] },

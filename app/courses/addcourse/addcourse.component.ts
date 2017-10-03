@@ -13,7 +13,9 @@ export class AddcourseComponent implements OnInit {
     users: User[] = [];
     loading = false;
     // model: any = {title: '', description:'', branch:Array, department:Array};
-    model: any = { title: '', description:'', branch: [], department: [] };
+    model: any = {title: '', description:'', branch: '', department: '' };
+    selDepartment: any = [];
+    selBranch: any = [];
 
 
     ListBranch: any = [];
@@ -30,6 +32,13 @@ export class AddcourseComponent implements OnInit {
         // this.loading = true;
         this.getBranch();
         this.getDepartment();
+    }
+    onDepartmentSelection(item: any) {
+        this.selDepartment.push(item.value);
+        //console.log('- selected (value: ' + item.value  + ', label:' + item.label + ')');
+    }
+    onBranchSelection(item: any) {
+        this.selBranch.push(item.value);
     }
     saveCourse(){
         this.alertService.success('Saving in progress ... ');
@@ -48,7 +57,7 @@ export class AddcourseComponent implements OnInit {
             for (var i=0; i<response.department.length; i++){ 
                 if(response.department[i].name){ 
                     var temp = {value:'', label:''};
-                    temp.value = response.department[i].name;
+                    temp.value = response.department[i]._id;
                     temp.label = response.department[i].name;
                     tempDepartment.push(temp);
                 }
@@ -64,7 +73,7 @@ export class AddcourseComponent implements OnInit {
             for (var i=0; i<response.branch.length; i++){ 
                 if(response.branch[i].name){ 
                     var temp = {value:'', label:''};
-                    temp.value = response.branch[i].name;
+                    temp.value = response.branch[i]._id;
                     temp.label = response.branch[i].name;
                     tempBranch.push(temp);
                 }

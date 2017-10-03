@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { DataTableModule } from "angular2-datatable";
-import {SelectModule} from 'angular2-select';
+import { SelectModule } from 'angular2-select';
+import { DropzoneModule, DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/index';
 import { MockBackend, MockConnection } from '@angular/http/testing';
@@ -21,7 +22,7 @@ import { MenuComponent } from './shared/menu/index';
 import { LogoComponent } from './shared/logo/index';
 import { HeaderComponent } from './shared/header/index';
 import { HomeComponent } from './home/index';
-import { OrganisationComponent, EditorganisationComponent } from './organisation/index';
+import { OrganisationComponent, EditorganisationComponent ,AddorganisationComponent } from './organisation/index';
 import { ProfileComponent } from './profile/index';
 import { UsersComponent, EdituserComponent } from './users/index';
 import { EmployeeComponent, AddemployeeComponent, EditemployeeComponent } from './employee/index';
@@ -37,7 +38,8 @@ import { RegisterComponent } from './register/index';
         HttpModule,
         DataTableModule,
         routing,
-        SelectModule
+        SelectModule,
+        DropzoneModule
     ],
     declarations: [
         AppComponent,
@@ -48,7 +50,7 @@ import { RegisterComponent } from './register/index';
         FooterComponent,
         MenuComponent,
         HomeComponent,
-        OrganisationComponent, EditorganisationComponent,
+        OrganisationComponent, EditorganisationComponent,AddorganisationComponent,
         ProfileComponent,
         UsersComponent, EdituserComponent,
         EmployeeComponent, AddemployeeComponent, EditemployeeComponent,
