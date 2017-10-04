@@ -22,7 +22,7 @@
         <div  class="card">
             <div class="header">
                 <h4 class="title">Edit Course 
-                <a href="/add-topic-to-course"><span><button class="btn btn-info btn-fill btn-xs btn-wd pull-right">Add Topic</button></span></a></h4>
+                <a href="/add-topic-to-course/{{model.id}}"><span><button class="btn btn-info btn-fill btn-xs btn-wd pull-right">Add Topic</button></span></a></h4>
             </div>
             <div class="content">
                 <form name="form" (ngSubmit)="f.form.valid && saveCourse()" #f="ngForm" novalidate>
@@ -37,11 +37,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group"  > <!-- [ngClass]="{ 'has-error': f.submitted && !department.valid  }"-->
+                            <div class="form-group"   [ngClass]="{ 'has-error': f.submitted && selDepartment != 0  }" > 
                                 <label for="Department">Department<span class="asterik">*</span>
-                                    <span class="errmsg">Enter Department</span> </label> <!-- *ngIf="f.submitted && !department.valid" -->
+                                    <span *ngIf="f.submitted && selDepartment != 0" class="errmsg">Enter Department</span> </label>
                                     <ng-select name="department"
+                                            [(ngModel)] = "selDepartment"
                                             (selected)="onDepartmentSelection($event)"
+                                            (deselected)="onDepartmentUnselection($event)"
                                             [multiple]="true"
                                             [options]="ListDepartment">
                                     </ng-select>
@@ -51,11 +53,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group" > <!-- [ngClass]="{ 'has-error': f.submitted && !branch.valid  }"  -->
+                            <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && selBranch!= 0  }">
                                 <label for="Branch">Branch<span class="asterik">*</span>
-                                    <span  class="errmsg">Enter Branch</span> </label> <!-- *ngIf="f.submitted && !branch.valid" -->
+                                    <span *ngIf="f.submitted && selBranch!= 0" class="errmsg">Enter Branch</span> </label>
                                     <ng-select name="branch"
+                                            [(ngModel)] = "selBranch"
                                             (selected)="onBranchSelection($event)"
+                                            (deselected)="onBranchUnselection($event)"
                                             [multiple]="true"
                                             [options]="ListBranch">
                                     </ng-select>

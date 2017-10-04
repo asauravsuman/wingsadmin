@@ -41,7 +41,6 @@
                                 <label for="Department">Department<span class="asterik">*</span>
                                     <span class="errmsg">Enter Department</span> </label> <!-- *ngIf="f.submitted && !department.valid" -->
                                     <ng-select name="department"
-                                            [(ngModel)]="selDepartment"
                                             [multiple]="true"
                                             [options]="ListDepartment"
                                             (selected)="onDepartmentSelection($event)">

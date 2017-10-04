@@ -28,6 +28,8 @@ export class CoursesComponent implements OnInit {
         // this.loading = true;
     }
     private loadUsers() {
-        this.courseService.getAll().subscribe((courses) => { this.data = courses.courses;});
+        this.courseService.getAll().subscribe((courses) => { 
+            this.data = courses.course;
+        });
     }
 }

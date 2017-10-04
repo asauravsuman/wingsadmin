@@ -38,6 +38,9 @@
 .table-striped thead th a, .category, .table-striped tbody td a{
   color:#252422 !important; 
 }
+.card .header{
+  padding: 10px;
+}
 .card label{
     color: black;
 }
@@ -66,8 +69,20 @@
   color:#A00;
   font-size: .9em;
 }
+#addtopic{
+  padding-top: 15px;
+}
+#addtopic ul{
+  cursor: pointer;
+}
 #addtopic ul .active{
   color:#DD0330;
   cursor: pointer;
 }
-    
+ #addtopic .header .active{
+  color:#DD0330;
+}
+.img-stamp{
+  width:130px;
+  height:70px;
+}   

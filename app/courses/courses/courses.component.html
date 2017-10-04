@@ -15,10 +15,10 @@
                    [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
                 <thead>
                     <tr>
-                    <th><mfDefaultSorter by="name">Title</mfDefaultSorter></th>
-                    <th><mfDefaultSorter by="type">Department</mfDefaultSorter></th>
-                    <th><mfDefaultSorter by="">Access</mfDefaultSorter></th>
-                    <th><mfDefaultSorter by="">Status</mfDefaultSorter></th>
+                    <th><mfDefaultSorter by="title">Title</mfDefaultSorter></th>
+                   <!--  <th><mfDefaultSorter by="type">Department</mfDefaultSorter></th> -->
+                    <th><mfDefaultSorter by="accesstag">Access</mfDefaultSorter></th>
+                    <th><mfDefaultSorter by="status">Status</mfDefaultSorter></th>
                     <th><mfDefaultSorter by="createdAt">Created On</mfDefaultSorter> </th>
                     <th>Action</th>
                     </tr>
@@ -26,8 +26,8 @@
                 <tbody>
                 <tr *ngFor="let row of mf.data">
                     <td> {{row.title}} </td>
-                    <td> {{row.department}} </td>
-                    <td>  {{row.search}} </td>
+                    <!-- <td> {{getDepartment(row.department)}} </td> -->
+                    <td>  {{row.accesstag}} </td>
                     <td> {{row.status}} </td>
                     <td> {{row.createdAt | date: 'mediumDate'}} </td>
                     <td> &nbsp;

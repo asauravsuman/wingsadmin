@@ -7,9 +7,23 @@
                 <div class="col-md-12">
                     <div class="card" style="min-height: 60px;">
                         <div class="header">
-                            <h4 class="title">Course Title</h4> 
-                            <p class="category">Description & other Details</p>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                <div class="author">
+                                <img src="assets/img/faces/face-2.jpg" alt="Raised Image" class="img-stamp img-rounded img-responsive img-raised">
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-md-12"><h4 class="title">{{model.title}}
+                                            <a href="/edit-course/{{model.id}}"><span><button class="btn btn-info btn-fill btn-xs btn-wd pull-right">Edit Course</button></span></a>
+                                        </h4></div>
+                                        <div class="col-md-6"><span class="active">Department: </span>{{selDepartment}}</div>
+                                        <div class="col-md-6"><span class="active">Branch: </span>{{selBranch}}</div>
+                                        <div class="col-md-12"><span class="active">Description</span> {{model.description}} </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>    
                 <div class="col-md-2">

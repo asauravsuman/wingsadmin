@@ -16,11 +16,8 @@ export class EditcourseComponent implements OnInit {
     // model: any = {title: '', description:'', branch:Array, department:Array};
     model: any = { id:'', title: '', description:'', branch: '', department: '' };
     course: any = {id: ''};
-    selDepartment: any = ["59c1f61b036c5836174de111"];
+    selDepartment: any = [];
     selBranch: any = [];
-    // {"courses":{"title":"First Course", "description":"description ","status": "Active","search": "first","accesstag": "guest"} }
-
-
     ListBranch: any = [];
     ListDepartment: Array<any> ;
    // mySelectValue: Array<string>; // Array of strings for multi select, string for single select.
@@ -38,26 +35,44 @@ export class EditcourseComponent implements OnInit {
         this.getDepartment();
         this.alertService.success('Fetching .. ');
         this.getCourse();
+
+        //this.selectedDepartment = ['59c1f63f036c5836174de114'];
     }
     onDepartmentSelection(item: any) {
         this.selDepartment.push(item.value);
-        //console.log('- selected (value: ' + item.value  + ', label:' + item.label + ')');
+        console.log(this.selDepartment);
     }
     onBranchSelection(item: any) {
         this.selBranch.push(item.value);
+        console.log(this.selBranch);
+    }
+    onDepartmentUnselection(item: any) {
+        this.selDepartment.splice(this.selDepartment.indexOf(item.value), 1);
+        console.log(this.selDepartment);
+    }
+    onBranchUnselection(item: any) {
+        this.selBranch.splice(this.selBranch.indexOf(item.value), 1);
+        console.log(this.selBranch);
     }
     getCourse(){
         this.courseService.getById(this.course).subscribe((resCourse) => { 
             this.model.id = this.course.id;
-            this.model.title = resCourse.course.title;
-            this.model.description = resCourse.course.description;
-
-              resCourse.course.department.forEach(function(value:any){
-                //this.selDepartment.push(value.toString());
-                console.log(value);
-
-              });
-            
+            this.model.title = resCourse.course[0].title;
+            this.model.description = resCourse.course[0].description;
+                var tempDepartment:any = [];
+                resCourse.course[0].department.forEach(function(value:any){
+                   var temp = [];
+                   temp.push(value._id);
+                   tempDepartment.push(value._id);
+                });
+                var tempBranch:any = [];
+                resCourse.course[0].branch.forEach(function(value:any){
+                   var temp = [];
+                   temp.push(value._id);
+                   tempBranch.push(value._id);
+                });
+            this.selDepartment = tempDepartment;
+            this.selBranch = tempBranch;     
             this.alertService.success('Course fetched successfully.');
         });
     }

@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     { path: 'courses', component: CoursesComponent, canActivate: [AuthGuard] },
     { path: 'add-course', component: AddcourseComponent, canActivate: [AuthGuard] },
     { path: 'edit-course/:id', component: EditcourseComponent, canActivate: [AuthGuard] },
-    { path: 'add-topic-to-course', component: AddtopictocourseComponent, canActivate: [AuthGuard] },
+    { path: 'add-topic-to-course/:id', component: AddtopictocourseComponent, canActivate: [AuthGuard] },
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
